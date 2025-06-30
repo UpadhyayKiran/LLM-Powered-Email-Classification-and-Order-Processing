@@ -64,25 +64,26 @@ The system interacts with a Google Spreadsheet containing:
 - Employs **LangChain** and other Python libraries for optimized AI-driven workflows.
 - Handles large datasets efficiently by minimizing unnecessary API calls.
 
-## Evaluation Criteria
-- **Effective AI Utilization**: Proper use of LLMs to categorize emails and generate responses.
-- **Code Quality & Completeness**: Ensures well-structured, maintainable, and functional code.
-- **Output Accuracy**: Ensures correctness and proper formatting of stored results.
-- **Scalability**: Handles a catalog of over 100,000 products efficiently.
+## Solution Architecture Diagram
 
-## Getting Started
-1. Set up API keys for OpenAI.
-2. Load the Google Spreadsheet containing product and email data.
-3. Run the script to classify emails, process orders, and generate responses.
-4. Verify the results in their respective sheets.
+![Solution_Architecture.png](Solution_Architecture.png)
 
-## Dependencies
-- Python 3.x
-- OpenAI API
+This diagram illustrates the **end-to-end workflow** for the **LLM-powered automated email classification, order processing, and customer inquiry response system** for a fashion store:
+
+- **Customer Emails** are fetched and processed in sequence.
+- Emails are **classified using GPT-4o** into:
+  - **Product Inquiries**: answered using **LLM-based retrieval and response generation**.
+  - **Order Requests**:
+    - **Order detail extraction using LLMs**, grounded by product catalog data via **LangChain SQL agents**.
+    - **Order processing and stock validation**, ensuring orders are fulfilled fully or partially while updating inventory.
+    - **LLM-based generation of clear, production-ready customer responses** reflecting order status.
+
+This architecture ensures **scalable, intelligent, and automated handling of customer interactions** while optimizing API token usage and aligning with **enterprise-level prompt engineering best practices**.
+
+
+##  Technologies Used
+- GPT-4o (via OpenAI API)
 - LangChain
-- Pandas
-- Google Sheets API
-
-## Conclusion
-This project demonstrates how AI can automate email classification, order processing, and customer communication for a retail business. By integrating LLMs, we streamline operations, improve efficiency, and enhance customer satisfaction.
+- Python (pandas, SQLAlchemy)
+- Jupyter Notebook
 
